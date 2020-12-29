@@ -63,6 +63,7 @@ $z -= $entier; //on retire la valeur de entier (7) a z
 <li><?php echo $y; ?></li>
 <li><?php echo $z; ?></li>
 </ul>
+<h2>Exemple e)</h2>
 
 </body>
 </html>
