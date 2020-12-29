@@ -6,3 +6,6 @@ h2{
 li{
     color: blue;
 }
+p::before{
+    content: 'voici un paragraphe';
+}

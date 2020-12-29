@@ -53,7 +53,7 @@ $z -= $entier; //on retire la valeur de entier (7) a z
 ?>
 <p><?php echo $z; ?></p>
 
-<h2>Exemple d)</h2>
+<h2>Exemple d) du php dans une balise html</h2>
 <!-- Mise en place d'une liste!-->
 <ul>
 <li><?php echo $texteDuParagraphe; ?></li>
@@ -63,7 +63,11 @@ $z -= $entier; //on retire la valeur de entier (7) a z
 <li><?php echo $y; ?></li>
 <li><?php echo $z; ?></li>
 </ul>
-<h2>Exemple e)</h2>
-
+<h2>Exemple e)html dans une balise php</h2>
+<?php
+echo "<p>".$texteDuParagraphe."</p>";  //le point permet de concatener/coller ?>
+<?php echo "<a href='https://google.fr'>".$z."</a>" ?>
+<?php
+//echo "<p>Sayah a dit:"./"bonjour tout le monde"/."</p>" ?>  
 </body>
 </html>
