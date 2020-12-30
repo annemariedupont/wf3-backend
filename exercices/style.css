@@ -7,5 +7,11 @@ li{
     color: blue;
 }
 p::before{
-    content: 'voici un paragraphe';
+    content: '->';
+   
+}
+.attention::before {
+    content: "⚠ Attention ! : ";
+    font-size: 1.2em;
+    color: red;
 }
