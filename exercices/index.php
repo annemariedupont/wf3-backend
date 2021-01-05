@@ -6,14 +6,14 @@
 <body>
 
 <h1> Exercice 1 de PHP</h1>
-<h2> Exemple a)</h2>
+<h2> chaine de caractere</h2>
 
 <p>
 <?php
 echo"Hello World"
 ?>
 </p>
-<h2>Exemple b)</h2>
+<h2>les variables</h2>
 
 <?php
 $texteDuParagraphe = "HelloWorld";
@@ -38,7 +38,7 @@ echo " ";
 echo constant("Vitesse_Max");
 ?></p>
 
-<h2>Exemple c)</h2>
+<h2>Incrementation</h2>
 
 <?php
 // incrementation (ajout de 1);
@@ -53,7 +53,7 @@ $z -= $entier; //on retire la valeur de entier (7) a z
 ?>
 <p><?php echo $z; ?></p>
 
-<h2>Exemple d) du php dans une balise html</h2>
+<h2> Du php dans une balise html</h2>
 <!-- Mise en place d'une liste!-->
 <ul>
 <li><?php echo $texteDuParagraphe; ?></li>
@@ -63,13 +63,13 @@ $z -= $entier; //on retire la valeur de entier (7) a z
 <li><?php echo $y; ?></li>
 <li><?php echo $z; ?></li>
 </ul>
-<h2>Exemple e)html dans une balise php</h2>
+<h2>html dans une balise php</h2>
 <?php
 echo "<p>".$texteDuParagraphe."</p>";  //le point permet de concatener/coller ?>
 <?php echo "<a href='https://google.fr'>".$z."</a>" ?>
 
 
-<h2>Exemple f : rappels html/css </h2>
+<h2>rappels html/css </h2>
 
 <p class="attention">
     Il faut nettoyer la plaie avant de mettre le 
@@ -88,7 +88,7 @@ echo "<p>".$texteDuParagraphe."</p>";  //le point permet de concatener/coller ?>
 <?php print("<h2>YO !</h2>"); ?>
 
 
-<h2>Exemple g : les opérateurs php </h2>
+<h2>les opérateurs php </h2>
 
 <?php 
     $x = 20;
@@ -166,7 +166,7 @@ echo "<p>".$texteDuParagraphe."</p>";  //le point permet de concatener/coller ?>
     echo "</li>";
     ?>
 </ul>
-<h2>Exemple h) les operateurs logiques</h2>
+<h2>les operateurs logiques</h2>
 <ul>
     <li><?php var_dump(10 AND 0);?></li>
     <li><?php var_dump(10 OR 0);?></li>
@@ -174,7 +174,7 @@ echo "<p>".$texteDuParagraphe."</p>";  //le point permet de concatener/coller ?>
     <li><?php var_dump(10 || 0);?></li>
     <li><?php var_dump(! true);?></li>
 </ul>
-<h2>Exemple i&nbsp;) les conditions if</h2>
+<h2>les conditions if</h2>
 <p>
 <?php
 $x=10;
@@ -188,7 +188,7 @@ echo "Rien à faire";
 ?>
 </p>
 
-<h2>Exemple j&nbsp;) les boucles switch</h2>
+<h2>les boucles switch</h2>
 
 <?php
 $favcolor="red";
@@ -209,7 +209,7 @@ echo "Vous n’avez pas de couleur préféré!";
 echo "</p>";
 ?>
 
-<h2>Exemples k) boucle while</h2>
+<h2>boucle while</h2>
 
 <?php
 $x=1;
@@ -232,7 +232,7 @@ echo "</ul>";
 ?>
 
 
-<h2>Exemples l) boucle for</h2>
+<h2>boucle for</h2>
 
 <?php
 echo "<ul>";
@@ -271,10 +271,10 @@ echo "<span>".$y."</span>";
 <h3>Exercice 3</h3>
 <?php
 echo "<ul>";
-for ($i =0; $i <= 1000; $i++) {
-    if ($i % 7 == 0) {
+for ($i =7; $i <= 1000; $i+=7) { // syntaxe permet d'optimiser le code au lieu de parcourir tt les nombres
+    
     echo "<li>".$i."</li>";
-    }
+    
 }
 ?>
 
@@ -282,38 +282,124 @@ for ($i =0; $i <= 1000; $i++) {
 
 <?php
 echo "<p>";
-for ($i =2; $i < 3457; $i++) {
-    if (3457 % $i == 0){
-    echo "3457 n'est pas un nombre premier";} }
-     {
-    echo "3457 est un nombre premier";}
+$j=3457;
+for ($i =2; $i <= $j; $i++) {
+    if ($j % $i == 0 && $j!=$i) {
+        echo $j." n'est pas un nombre premier";
+        break;
+    } 
+    else if ($i==$j) {//si la condition precedente n'est pas remplie et si on arrive au bout de la liste
+
+        echo $j." est un nombre premier";
+    }
+}
+     
+    
 
 echo "</p>";
 ?>
-<h2>Exemple m) les tableaux</h2>
+
+<h2>les tableaux</h2>
 <?php
 $cars=["Dacia", "BMW", "Toyota"];
 echo "<span>$cars[0]</span><br>";
 echo "<span>$cars[1]</span><br>";
 echo "<span>$cars[2]</span><br>";
 
-$taille = count($cars);
-echo "<ul>";
-for($i =0; $i < $taille ;$i++) {
-echo "<li>".$cars[$i]."</li>";
+$cars[] = "Mercedes"; //on ajoute un element au tableau
+$cars[] = "Renault";
+
+$taille = count($cars); //on mesure la taille du tableau
+echo "<ol type= 'A' reversed >";
+for($i =0; $i < $taille ;$i++) { // on parcoure tout le tableau
+echo "<li>".$cars[$i]."</li>"; 
 }
-echo "</ul>";
+echo "</ol>";
 ?>
 
-<h2>Exemples n) les tableaux associatifs</h2>
+<h2>les tableaux associatifs</h2>
 <?php
-$age=["Zakaria"=>"27","Fatima"=>"37","Rida"=>"43"];
+//$age=["Zakaria"=>"27","Fatima"=>"37","Rida"=>"43"];
 //Ou:
-$tab=["nom"=>["Zakaria","Fatima","Rida"],"age"=>["27","37","43"]];
-$age["Zakaria"]="27";
-$age["Fatima"]="37";
-$age["Rida"]="43";
+$tab=["nom"=>["Zakaria","Fatima","Rida"],"age"=>["27","37","43"]]; //tableau multidiemsions
+
+echo $tab["nom"][1];
+echo $tab["age"][1];
+$tab["nom"][]= "houda";
+$tab["age"][]= "32";
+echo $tab["nom"][3];
+
+
+//$age["Zakaria"]="27";
+//$age["Fatima"]="37";
+//$age["Rida"]="43";
+
+//$nom = readline("entrer votre nom");//fonction qui permet d'entrer la donnee
+//echo $nom;
 ?>
+<h2> Exercices sur les tableaux</h2>
+<!-- Exercice :
+    Écrire un tableau qui contient tous les mois de l'année puis l'afficher
+    grâce aux 3 différentes boucles (for, while et do,while).
+
+    Exercice :
+    Écrire un tableau associatif, qui associe des pays à des capitales 
+    (France, Norvège, Sénégal, Inde, Chine, Mexique).
+    Afficher ces capitales grâce à un foreach.
+-->
+<?php
+$mois_de_lannee=["janivier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"];
+echo "<ol>";
+for($i =0; $i <=11 ;$i++) { // on parcoure tout le tableau
+    echo "<li>".$mois_de_lannee[$i]."</li>"; 
+    }
+    echo "</ol>";
+    $x=0;
+    echo "<ul>";
+    while($x<=11) {
+    echo "<li>".$mois_de_lannee[$x]."</li><br>";
+    $x++;
+    }
+    echo "</ul>";
+    $x=0;
+echo "<ol type= 'A'>";
+do {
+echo "<li>".$mois_de_lannee[$x]."</li>";
+$x++;
+} while ($x<=11);
+echo "</ol>";
+
+$tab=["France"=>"Paris","Norvege"=>"Oslo","Senegal"=>"Dakar","Inde"=>"New Delhi","Mexique"=>"Mexico"];
+echo "<ul>";
+foreach($tab as $key => $value) {
+echo "<li>".$key." a pour capitale ".$value."</li>";
+}
+echo "</ul>";
+
+/* Exercice :
+Écrire un tableau x avec comme données "A", "B", "C" et "D".
+Un tableau y avec comme données "E", "F", "G" et "H"
+
+À l'aide d'une boucle de votre choix, mettre y à la suite de x.
+
+À l'aide d'une boucle de votre choix, afficher x.
+*/
+$x=["A","B","C","D"];
+$y=["E","F","G","H"];
+foreach ($y as $value) {
+    $x[]="$value";
+}
+    echo $x[6];
+
+
+
+
+    ?>
+    
+
+
+
+
 
 </body>
 </html>
