@@ -397,13 +397,105 @@ $y=["E","F","G","H"];
 foreach ($y as $value) {
     $x[]="$value";
 }
-echo "<ul>";
+echo "<ol type='A'>";
 foreach ($x as $value){
     echo "<li>".$value."</li>";
 }
-echo "</ul>";
+echo "</ol>";
     
+//exemple bis
+$age = ["Linda"=>"10","Zakaria"=>"27",
+                "Fatima"=>"37","Rida"=>"43","Nadia"=>"15"];
+    echo "<ul>";
+    foreach($age as $name=>$value) {
+        echo "<li>".$name." a ".$value." printemps !"."</li>";
+        if ($value <= 10) echo "<p>Enfant !</p>";
+        else if ($value > 10 && $value < 18) echo "<p>Ado !</p>";
+        else if ($value >= 30 && $value < 40) echo "<p>Alors, on a la trentaine ?</p>";
+        else if ($value == 43) echo "<p>Tu t'apellerais pas Rida, par hasard ?</p>";
+        else if ($value < 30 && $value >= 20) echo "<p>La vingtaine !</p>";
+    }
+    echo "</ul><br>";
+    echo "<p>".print_r(array_keys($age))."</p><br>";// permet d'afficher la clé dans age
+    echo "<p>".print_r(array_values($age))."</p><br>";// permet d'afficher la valeur dans age
+    echo "<p>".print_r($value)."</p><br>";//affiche la derniere valeur
+    echo "<p>".print_r($age)."</p><br>"; // affiche le tableau avec + d'info (type, clés, valeurs...)
+//exemple avec switch case
+switch ($age) {
+    case $value <= 10:
+        echo "<p>Enfant !</p>";
+    break;
+    case $value > 10 && $value < 18:
+        echo "<p>Ado !</p>";
+    break;
+    case $value >= 30 && $value < 40:
+        echo "<p>Alors, on a la trentaine ?</p>";
+    break;
+    case $value == 43:
+         echo "<p>Tu t'apellerais pas Rida, par hasard ?</p>";
+    case $value < 30 && $value >= 20:
+    echo "<p>La vingtaine !</p>";
+    }
+  
     ?>
+    <h2>fusuinner 2 tableaux</h2>
+    <?php
+$array1 = array(1 => "red", 2, 4,"shape" => "square");
+$array2 = array("a", "b","B", 1 => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);//combine les 2 tableaux, les valeurs ayant la meme clé s'ecrase
+print_r($array1);
+print_r($array2);
+sort($result);
+print_r($result);
+?>
+
+    <h2>le trie</h2>
+    <?php
+$cars = array("Dacia", "BMW", "Toyota");
+sort($cars);//tri par ordre alphabetique
+echo "<p>";
+print_r($cars);
+echo "</p><br>";
+
+$numbers=array(4,6,2,22,11);
+sort($numbers);//tri par ordre croissant
+echo "<p>";
+print_r($numbers);
+echo "</p><br>";
+rsort($numbers);//tri par ordre decroissant
+echo "<p>";
+print_r($numbers);
+echo "</p><br>";
+?>
+<h2>in_array</h2>
+
+<?php
+$etudiants=array("Zakaria","Fatima","Rida");
+if (in_array("Zakaria", $etudiants))
+{
+echo "Trouvé";
+}
+else
+{
+echo "Non trouvé!";
+}
+?>
+
+<h2>les fonctions</h2>
+<?php
+function Msg() {
+echo "<p>Hello world!</p><br>";//ce que fait la fonction
+}
+Msg();// appelle la fonction
+?>
+<!--fonction avec arguments-->
+<?php
+function writeMsg($nom,$prenom,$repetition) {
+    for($i=0; $i<=$repetition; $i++)//fonction qui permet de repeter "repetition" fois
+echo "<p>Hello " . $nom." ".$prenom."</p><br>";
+}
+writeMsg("Dupont","Anne",3);
+?>
     
 
 
